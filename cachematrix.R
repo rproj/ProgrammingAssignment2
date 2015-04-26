@@ -1,7 +1,10 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The first function, makeVector creates a special "vector", which is really a list containing a function to
 
-## Write a short comment describing this function
+## set the value of the vector
+## get the value of the vector
+## set the value of the mean
+## get the value of the mean
+
 
 makeVector <- function(x = numeric()) {
   m <- NULL
@@ -16,6 +19,10 @@ makeVector <- function(x = numeric()) {
        setmean = setmean,
        getmean = getmean)
 }
+
+## calculates the mean of the special "vector" created with makeVector which is above
+
+
 cachemean <- function(x, ...) {
   m <- x$getmean()
   if(!is.null(m)) {
@@ -28,6 +35,7 @@ cachemean <- function(x, ...) {
   m
 }
 
+## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
   m<-NULL
@@ -42,6 +50,9 @@ makeCacheMatrix <- function(x = matrix()) {
        setmatrix=setmatrix,
        getmatrix=getmatrix)
 }
+
+## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. If the inverse 
+## has already been calculated (and the matrix has not changed), then cacheSolve should retrieve the inverse from the cache.
 
 cacheSolve <- function(x=matrix(), ...) {
   m<-x$getmatrix()
